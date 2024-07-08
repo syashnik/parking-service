@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "b6476af7-e893-4fe0-84d5-477e99b2f343",
+		"name": "Parking Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "682692"
+	},
+	"item": [
+		{
+			"name": "Get bookings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const dataresult = pm.response.json();",
+							"pm.collectionVariables.set(\"firstRecord\", dataresult[0].id);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{role}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/v1/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create bookings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const dataresult = pm.response.json();",
+							"pm.collectionVariables.set(\"createdRecord\", dataresult.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{role}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"parkingSpotId\": \"9d251159-af63-4d2b-aa6d-e32192aa2e97\",\n  \"startDate\": \"2024-10-07T07:00:00.000Z\",\n  \"endDate\": \"2024-11-07T09:00:00.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update bookings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const dataresult = pm.response.json();",
+							"pm.collectionVariables.set(\"firstRecord\", dataresult[0]);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{role}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"parkingSpotId\": \"8bc98511-99e0-4f37-aaf6-22fd4d908f4f\",\n  \"startDate\": \"2024-07-07T07:00:00.000Z\",\n  \"endDate\": \"2024-07-07T09:00:00.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/bookings/{{createdRecord}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"bookings",
+						"{{createdRecord}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bookings by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{role}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/v1/bookings/{{createdRecord}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"bookings",
+						"{{createdRecord}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete bookings by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{role}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/v1/bookings/{{createdRecord}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"bookings",
+						"{{createdRecord}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "data",
+			"value": ""
+		},
+		{
+			"key": "firstRecord",
+			"value": ""
+		},
+		{
+			"key": "createdRecord",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,6 @@
+{
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ]
+}
