@@ -8,6 +8,7 @@ This project is a parking spot booking service built with Node.js, Express, Type
 
 ___
 # Run with Docker Compose
+- Clone `.env.example` and rename into `.env.production`. Fill in the necessary environment variables if needed
 - `docker-compose up --build`
 - Open [swagger docs](http://localhost:3001/swagger) or use [postman collection](./docs/Parking_Service.postman_collection.json)
 - Don't forget to specify Bearer token with proper role `admin` or `user`
